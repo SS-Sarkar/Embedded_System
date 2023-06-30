@@ -1,0 +1,37 @@
+C51 COMPILER V9.54   SHIFT_RIGHT                                                           08/08/2022 11:01:54 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SHIFT_RIGHT
+OBJECT MODULE PLACED IN .\Objects\Shift_Right.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Shift_Right.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\Shift_Right.lst) TABS(2) OBJECT(.\Objects\Shift_Right.obj)
+
+line level    source
+
+   1          //Shift right the input given in PORT1 and show the result in PORT0.
+   2          #include<reg51.h>
+   3          
+   4          void delay ()
+   5          {
+   6   1        unsigned int x;
+   7   1        for(x = 0; x< 30000;x++);
+   8   1      }
+   9          void main()
+  10          {
+  11   1        P0 = P1 >>1;
+  12   1        delay();
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

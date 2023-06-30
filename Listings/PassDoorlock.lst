@@ -1,0 +1,95 @@
+C51 COMPILER V9.54   PASSDOORLOCK                                                          08/18/2022 15:19:04 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE PASSDOORLOCK
+OBJECT MODULE PLACED IN .\Objects\PassDoorlock.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE PassDoorlock.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\PassDoorlock.lst) TABS(2) OBJECT(.\Objects\PassDoorlock.obj)
+
+line level    source
+
+   1          //Project :4 Password Protected Doorlock
+   2          #include<reg51.h>
+   3          unsigned char a[] = "ENTER PASSWORD:";
+   4          unsigned char op[] = "Virus";
+   5          unsigned char p[5];
+   6          
+   7          unsigned char r[] ="WRONG PASSWORD,TRY AGAIN!";
+   8          unsigned char cr[] ="CORRECT PASSWORD";
+   9          int x,y,m,n,k,j=0;
+  10          void nextline()
+  11          {
+  12   1            SBUF=0X0D;
+  13   1            while(TI == 0);
+  14   1            TI = 0;
+  15   1      }
+  16          void main()
+  17          {
+  18   1        SCON = 0x50;
+  19   1        TMOD = 0x20;
+  20   1        TH1 = 0xFD;
+  21   1        TR1 = 1;
+  22   1        for(x = 0;x <15;x++)
+  23   1        {
+  24   2          SBUF = a[x];
+  25   2          while(TI == 0);
+  26   2          TI = 0;
+  27   2        }
+  28   1      nextline();
+  29   1        for(y = 0;y<5;y++)
+  30   1        {
+  31   2          while(RI == 0);
+  32   2          p[y] = SBUF;
+  33   2          
+  34   2          RI = 0;
+  35   2            SBUF='*';
+  36   2            while(TI == 0);
+  37   2          TI = 0;
+  38   2          
+  39   2        }
+  40   1        nextline();
+  41   1        for(k=0;k<5;k++)
+  42   1        {
+  43   2        if(p[k] == op[k])
+  44   2        {
+  45   3          j=j+1;
+  46   3        }}
+  47   1          if(j==5)
+  48   1          {
+  49   2            for(m = 0;m <16 ;m++)
+  50   2          {
+  51   3            SBUF = cr[m];
+  52   3            while(TI == 0);
+  53   3            TI = 0;
+  54   3            j=0;
+C51 COMPILER V9.54   PASSDOORLOCK                                                          08/18/2022 15:19:04 PAGE 2   
+
+  55   3          }
+  56   2          nextline();
+  57   2        }
+  58   1        else
+  59   1        {
+  60   2          for(n = 0;n<25;n++)
+  61   2          {
+  62   3            SBUF = r[n];
+  63   3            while(TI == 0);
+  64   3            TI = 0;
+  65   3            j=0;
+  66   3          }
+  67   2          nextline();
+  68   2        }
+  69   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    227    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     82    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

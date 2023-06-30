@@ -1,0 +1,30 @@
+C51 COMPILER V9.54   SEND70                                                                08/06/2022 11:14:44 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SEND70
+OBJECT MODULE PLACED IN .\Objects\send70.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE send70.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\se
+                    -nd70.lst) TABS(2) OBJECT(.\Objects\send70.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void main()
+   3          {
+   4   1      P0=0x70;
+   5   1      P3=0x90;
+   6   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      7    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

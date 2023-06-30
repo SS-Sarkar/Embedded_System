@@ -1,0 +1,8 @@
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(18): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+ARM1.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created

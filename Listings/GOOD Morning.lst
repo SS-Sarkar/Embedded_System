@@ -1,0 +1,41 @@
+C51 COMPILER V9.54   GOOD_MORNING                                                          08/17/2022 10:54:05 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE GOOD_MORNING
+OBJECT MODULE PLACED IN .\Objects\GOOD Morning.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE GOOD Morning.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\GOOD Morning.lst) TABS(2) OBJECT(.\Objects\GOOD Morning.obj)
+
+line level    source
+
+   1          //Transmit "GOOD MORNING " to the Virtual terminal continuously.
+   2          #include<reg51.h>
+   3          char s[] = "GOOD MORNING :)";
+   4          int x;
+   5          void main()
+   6          {
+   7   1        SCON = 0x50;
+   8   1        TMOD = 0x20;
+   9   1        TH1 = 0xFD;
+  10   1        TR1 = 1;
+  11   1        for(x = 0;x < sizeof(s);x++)
+  12   1        {
+  13   2          SBUF = s[x];
+  14   2          while(TI == 0);
+  15   2          TI = 0;
+  16   2        }
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     44    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

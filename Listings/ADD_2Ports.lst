@@ -1,0 +1,33 @@
+A51 MACRO ASSEMBLER  ADD_2PORTS                                                           08/05/2022 11:59:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\ADD_2Ports.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ADD_2Ports.ASM SET(SMALL) DEBUG PRINT(.\Listings\ADD_2Ports.lst) OBJECT
+                      (.\Objects\ADD_2Ports.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000 E590              2     mov A,p1
+0002 25A0              3     add A,p2
+0004 F5B0              4     mov p3,A
+0006 00                5     NOP
+                       6     END
+A51 MACRO ASSEMBLER  ADD_2PORTS                                                           08/05/2022 11:59:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

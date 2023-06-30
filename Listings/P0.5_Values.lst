@@ -1,0 +1,39 @@
+A51 MACRO ASSEMBLER  P0_5_VALUES                                                          08/05/2022 11:51:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\P0.5_Values.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE P0.5_Values.ASM SET(SMALL) DEBUG PRINT(.\Listings\P0.5_Values.lst) OBJE
+                      CT(.\Objects\P0.5_Values.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000 208508            2     l2:jb p0.5,l1
+0003 75A000            3             mov p2,#00h
+0006 75B022            4             mov p3,#22h
+0009 80F5              5             sjmp l2
+000B 75A022            6     l1:mov p2,#22h
+000E 75B000            7             mov p3,#00H     
+0011 80ED              8             sjmp l2
+0013 00                9     NOP
+                      10     END
+A51 MACRO ASSEMBLER  P0_5_VALUES                                                          08/05/2022 11:51:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   000BH   A   
+L2 . . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

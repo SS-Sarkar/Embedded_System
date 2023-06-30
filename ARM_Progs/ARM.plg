@@ -1,0 +1,214 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+D:\Embedded Sys(SARKAR)\ARM_Progs\ARM.uv2
+Project File Date:  08/26/2022
+
+<h2>Output:</h2>
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(13): error:  #29: expected an expression
+ARM_LED_OnOff.c(17): error:  #29: expected an expression
+ARM_LED_OnOff.c(21): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 3 Error(s), 2 Warning(s).
+Build target 'Target 1'
+assembling Startup.s...
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(13): error:  #29: expected an expression
+ARM_LED_OnOff.c(17): error:  #29: expected an expression
+ARM_LED_OnOff.c(21): warning:  #1-D: last line of file ends without a newline
+Target not created
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(13): error:  #29: expected an expression
+ARM_LED_OnOff.c(17): error:  #29: expected an expression
+ARM_LED_OnOff.c(21): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 3 Error(s), 2 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(13): error:  #29: expected an expression
+ARM_LED_OnOff.c(17): error:  #29: expected an expression
+ARM_LED_OnOff.c(21): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 3 Error(s), 1 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(12): error:  #29: expected an expression
+ARM_LED_OnOff.c(16): error:  #29: expected an expression
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 3 Error(s), 2 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #29: expected an expression
+ARM_LED_OnOff.c(12): error:  #29: expected an expression
+ARM_LED_OnOff.c(16): error:  #29: expected an expression
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 3 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): error:  #20: identifier "IO0DIr" is undefined
+ARM_LED_OnOff.c(6): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(12): error:  #29: expected an expression
+ARM_LED_OnOff.c(16): error:  #29: expected an expression
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+Target not created
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(6): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(12): error:  #29: expected an expression
+ARM_LED_OnOff.c(16): error:  #29: expected an expression
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 2 Error(s), 4 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(6): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(12): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(12): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(16): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(16): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(6): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(12): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(12): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(16): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(16): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 0 Error(s), 8 Warning(s).
+compiling ARM_LED_OnOff.c...
+ARM_LED_OnOff.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_LED_OnOff.c(6): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(6): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(12): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(12): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(16): warning:  #61-D: integer operation result is out of range
+ARM_LED_OnOff.c(16): warning:  #68-D: integer conversion resulted in a change of sign
+ARM_LED_OnOff.c(20): warning:  #1-D: last line of file ends without a newline
+ARM_LED_OnOff.c - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling ARM_Toggle.c...
+ARM_Toggle.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_Toggle.c(18): warning:  #1-D: last line of file ends without a newline
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling ARM_Toggle.c...
+ARM_Toggle.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_Toggle.c(21): warning:  #1-D: last line of file ends without a newline
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling ARM_Toggle.c...
+ARM_Toggle.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_Toggle.c(17): warning:  #1-D: last line of file ends without a newline
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling ARM_Toggle.c...
+ARM_Toggle.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_Toggle.c(17): warning:  #1-D: last line of file ends without a newline
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling ARM_ToggleP0.c...
+ARM_ToggleP0.c(8): warning:  #951-D: return type of function "main" must be "int"
+ARM_ToggleP0.c(16): warning:  #1-D: last line of file ends without a newline
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 2 Warning(s).
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(3): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(7): error:  #268: declaration may not appear after executable statement in block
+ARM_ShiftAbitLtoR.c - 1 Error(s), 1 Warning(s).
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+FromELF: creating hex file...
+"ARM.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(13): warning:  #223-D: function "BIT" declared implicitly
+linking...
+ARM.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(13): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(4): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(13): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+ARM.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(18): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+ARM.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(18): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+ARM.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created
+compiling ARM_ShiftAbitLtoR.c...
+ARM_ShiftAbitLtoR.c(9): warning:  #951-D: return type of function "main" must be "int"
+ARM_ShiftAbitLtoR.c(18): warning:  #223-D: function "BIT" declared implicitly
+ARM_ShiftAbitLtoR.c - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+ARM.axf: Error: L6218E: Undefined symbol BIT (referred from arm_shiftabitltor.o).
+Target not created

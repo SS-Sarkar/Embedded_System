@@ -1,0 +1,70 @@
+C51 COMPILER V9.54   DELAY_WITH_M2                                                         08/12/2022 10:55:19 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE DELAY_WITH_M2
+OBJECT MODULE PLACED IN .\Objects\delay_with_M2.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE delay_with_M2.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\delay_with_M2.lst) TABS(2) OBJECT(.\Objects\delay_with_M2.obj)
+
+line level    source
+
+   1          /*Monitor P1.3 ,if 1 generate a time period on P3.3 with 500 ms delay 
+   2          using T1M2. If 0 generate a square wave on P3.3 with 100 micro sec
+   3          delay using T0M2*/
+   4          #include <reg51.h>
+   5          sbit a = P1^3;
+   6          sbit b = P3^3;
+   7          unsigned int x;
+   8          unsigned int y;
+   9          void delay1()
+  10          {
+  11   1        for(x = 0; x<1800 ;x++)
+  12   1        {
+  13   2        TH1 = 0x00;
+  14   2        TR1 = 1;
+  15   2        while(TF1 == 0);
+  16   2        TF1 = 0;
+  17   2        TR1 = 0;
+  18   2        }
+  19   1      }
+  20          void delay2()
+  21          {
+  22   1        TH0 = 0xA4;
+  23   1        TR0 = 1;
+  24   1        while(TF0 == 0);
+  25   1        TF0 = 0;
+  26   1        TR0 = 0;
+  27   1      }
+  28          void main()
+  29          {
+  30   1        TMOD = 0x22;
+  31   1        while(1)
+  32   1        {
+  33   2          if (a == 1)
+  34   2          {
+  35   3          b = ~b;
+  36   3          delay1();
+  37   3          }
+  38   2          else
+  39   2          {
+  40   3          b = ~b;
+  41   3          delay2();
+  42   3          }
+  43   2        }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     67    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.54   DELAY_WITH_M2                                                         08/12/2022 10:55:19 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

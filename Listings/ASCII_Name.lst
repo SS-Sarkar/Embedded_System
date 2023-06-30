@@ -1,0 +1,44 @@
+C51 COMPILER V9.54   ASCII_NAME                                                            08/06/2022 12:29:43 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ASCII_NAME
+OBJECT MODULE PLACED IN .\Objects\ASCII_Name.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ASCII_Name.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\ASCII_Name.lst) TABS(2) OBJECT(.\Objects\ASCII_Name.obj)
+
+line level    source
+
+   1          //Send the ASCII value of your name to port 2 with some delay.
+   2          #include<reg51.h>
+   3          char a[] = {"SADASIBA"};
+   4          int i;
+   5          void delay()
+   6          {
+   7   1        unsigned int x;
+   8   1        for(x = 0;x < 60000; x++);
+   9   1      }
+  10          void main()
+  11          {
+  12   1        while(1)
+  13   1        {
+  14   2          for(i = 0;i <8;i++)
+  15   2          {
+  16   3            P2 = a[i];
+  17   3            delay();
+  18   3          }
+  19   2        }
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     63    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

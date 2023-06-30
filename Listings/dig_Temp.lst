@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  DIG_TEMP                                                             08/05/2022 13:11:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\dig_Temp.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE dig_Temp.ASM SET(SMALL) DEBUG PRINT(.\Listings\dig_Temp.lst) OBJECT(.\O
+                      bjects\dig_Temp.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 E5B0              2             l5:mov a,p3
+0002 B4500B            3     l2:cjne a,#50H,l1
+0005 85B0A0            4             mov p2,p3
+0008 759000            5             mov p1,#00h
+000B 758000            6             mov p0,#00h
+000E 80F0              7             sjmp l5
+0010 9450              8     l1: subb a,#50H
+0012 400B              9     l3: jc l4
+0014 85B080           10                     mov p0,p3
+0017 75A000           11                     mov p2,#00h
+001A 759000           12             mov p1,#00h
+001D 80E1             13                     sjmp l5
+001F 85B090           14             l4:mov p1,p3
+0022 75A000           15             mov p2,#00h
+0025 758000           16             mov p0,#00h
+0028 80D6             17             sjmp l5
+002A 00               18     nop
+                      19     end
+                                     
+A51 MACRO ASSEMBLER  DIG_TEMP                                                             08/05/2022 13:11:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0010H   A   
+L2 . . . . . . . .  C ADDR   0002H   A   
+L3 . . . . . . . .  C ADDR   0012H   A   
+L4 . . . . . . . .  C ADDR   001FH   A   
+L5 . . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

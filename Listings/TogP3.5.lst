@@ -1,0 +1,31 @@
+A51 MACRO ASSEMBLER  TOGP3_5                                                              08/05/2022 11:43:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\TogP3.5.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE TogP3.5.ASM SET(SMALL) DEBUG PRINT(.\Listings\TogP3.5.lst) OBJECT(.\Obj
+                      ects\TogP3.5.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 B2B5              2     L1: CPL P3.5
+0002 80FC              3             SJMP L1
+0004 00                4     NOP
+                       5     END
+A51 MACRO ASSEMBLER  TOGP3_5                                                              08/05/2022 11:43:19 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0000H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

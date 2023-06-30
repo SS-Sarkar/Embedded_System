@@ -1,0 +1,86 @@
+[p GLOBOPT AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul64.c
+[v ___omul __omul `(ul  1 e 4 0 ]
+"72 D:\Embedded Sys(SARKAR)\PIC_Progs\PIC_SARKAR.X\PIC_Keyboard_LCD.c
+[v _delay delay `(v  1 e 1 0 ]
+"76
+[v _com com `(v  1 e 1 0 ]
+"84
+[v _data data `(v  1 e 1 0 ]
+"92
+[v _main main `(v  1 e 1 0 ]
+"271 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"1699
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3110
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"3588
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3600
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"8125
+[v _RC0 RC0 `VEb  1 e 0 @31760 ]
+"8128
+[v _RC1 RC1 `VEb  1 e 0 @31761 ]
+"8140
+[v _RC2 RC2 `VEb  1 e 0 @31762 ]
+"8176
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"8611
+[v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"8614
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
+"8617
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"8632
+[v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
+"70 D:\Embedded Sys(SARKAR)\PIC_Progs\PIC_SARKAR.X\PIC_Keyboard_LCD.c
+[v _comd comd `[5]ui  1 e 10 0 ]
+"71
+[v _a a `ui  1 e 2 0 ]
+[v _b b `ui  1 e 2 0 ]
+"92
+[v _main main `(v  1 e 1 0 ]
+{
+"113
+} 0
+"84
+[v _data data `(v  1 e 1 0 ]
+{
+"91
+} 0
+"76
+[v _com com `(v  1 e 1 0 ]
+{
+"83
+} 0
+"72
+[v _delay delay `(v  1 e 1 0 ]
+{
+"75
+} 0

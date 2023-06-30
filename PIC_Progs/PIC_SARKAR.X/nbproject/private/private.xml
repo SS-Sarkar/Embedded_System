@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PortBandC.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/ComplementC1.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_SC_FavCrictName.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_SerlComn_Transmission.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/Moniter&amp;Senddata.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_SerlComn_Reception.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/ToggleRD2.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_T0_1s_16b_NoPres.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/MonitorRB7.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Interfacing_Relay.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Interfacing_Motor_OR.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/Senddat_PAB.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/Task4PCBD.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Interfacing_Motor.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Student_details.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_T0_16b_WoutPres.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Keyboard_LCD.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/PIC_Interfacing_7seg.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/Send00FFtoPB.c</file>
+            <file>file:/D:/Embedded%20Sys(SARKAR)/PIC_Progs/PIC_SARKAR.X/ASCII0-15PB.c</file>
+        </group>
+    </open-files>
+</project-private>

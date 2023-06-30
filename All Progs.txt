@@ -1,0 +1,1853 @@
+1.
+//Send data to a port
+#include<reg51.h>
+void main()
+{
+P0=0x70;
+P3=0x90;
+}
+
+2.
+//Addition and Substraction of PortsS
+#include<reg51.h>
+sbit a= P1^3;
+void main()
+{
+	if(a == 1)
+	{
+	P0 = P2+P3;
+	}
+	else 
+	{
+	P0 = P2-P3;
+	}
+}
+
+3.
+//Send the ASCII value of your name to port 2 with some delay.
+#include<reg51.h>
+char a[] = {"SADASIBA"};
+int i;
+void delay()
+{
+	unsigned int x;
+	for(x = 0;x < 60000; x++);
+}
+void main()
+{
+	while(1)
+	{
+		for(i = 0;i <8;i++)
+		{
+			P2 = a[i];
+			delay();
+		}
+	}
+}
+
+4.
+//Send the value  -4 to +4 TO PORT 3 with some delay
+#include<reg51.h>
+
+void delay ()
+{
+	unsigned int x;
+	for(x = 0; x< 50000;x++);
+}
+void main()
+{
+	while(1)
+	{
+		signed int i;
+		for(i = -4;i< 5;i++)
+		{
+			P3 = i;
+			delay();
+		}
+	}
+}
+
+
+5.
+//Shift right the input given in PORT1 and show the result in PORT0.
+#include<reg51.h>
+
+void delay ()
+{
+	unsigned int x;
+	for(x = 0; x< 30000;x++);
+}
+void main()
+{
+	P0 = P1 >>1;
+	delay();
+}
+
+
+6.
+//A digital temperature sensor is connected to port3 .if temp>50 ,display the temp. on P0,if temp.<50 ,display on P1.
+#include<reg51.h>
+ /*void delay()
+ {
+	unsighned int x;
+	for(x= 0;x<35000; x++);
+}*/
+void main()
+{
+	if(P3 > 50)
+	{
+		P0 = P3;
+	}
+	else if(P3 < 50)
+	{
+		P1 = P3;
+	}
+
+}
+
+7.
+//Mini Project: Visitor Counter
+#include <reg51.h>
+void delay()
+ {
+	unsigned int x;
+	for(x = 0;x<35000; x++);
+}
+sbit a = P2^3;
+sbit b = P2^4;
+void main()
+{
+	delay();
+	if(a == 1)
+	{
+	P1 ++;
+	}
+	else if (b == 1)
+	{
+	P1--;
+	}
+}
+
+8.
+//Mini Project -2:Automatic voting machine
+#include<reg51.h>
+sbit a = P1^0;
+sbit b = P1^1;
+sbit c = P1^2;
+sbit result = P1^3;
+sbit d = P1^4;
+sbit e = P1^5;
+sbit f = P1^6;
+
+void delay()
+ {
+	unsigned int x;
+	for(x = 0;x<35000; x++);
+}
+
+void main()
+{
+	if (a == 0)
+	{
+		P0++;
+		delay();
+	}
+	else if(b == 0)
+	{
+		P2++;
+		delay();
+	}
+	else if(c == 0)
+	{
+		P3++;
+		delay();
+	}	
+	else if(result == 0)
+	{
+		if(P0 > P2 && P0 > P3)
+		{
+			d = 0;
+			delay ();
+			d = 1;
+		}
+		else if(P2 > P0 && P2 > P3)
+		{
+		 e = 0;
+			delay();
+			e = 1;
+		}
+		else
+		{
+		f = 0;
+			delay();
+			f = 1;
+		}
+		delay();
+	}
+}
+
+
+9.
+
+// different delays on 500 mili sec and off 30 mili sec
+#include<reg51.h>
+sbit a = P3^5;
+unsigned int x;
+void delay1()
+{
+	for(x = 0;x<7;x++)
+	{
+	TMOD = 0x10 ; 
+	TH1 = 0 ;
+	TL1 = 0;
+	TR1 = 1;
+	while( TF1 == 0);
+	TR1 = 0;
+	TF1 = 0;
+	}
+}
+void delay2()
+{
+	TMOD = 0x10 ; 
+	TH1 = 0x93 ;
+	TL1 = 0xFF;
+	TR1 = 1;
+	while( TF1 == 0);
+	TR1 = 0;
+	TF1 = 0;
+}
+void main()
+{
+	while(1)
+	{
+	a = 1;
+	delay1();
+	a = 0;
+	delay2();
+	}
+	
+}
+
+10.
+//Complement port 1with 1 sec delay using T1M0.(TIMER1) using Mode 0
+#include<reg51.h>
+unsigned int x;
+void delay()
+{
+	for(x =  0;x <112;x++)
+	{
+		TMOD = 0x00;
+		TH0 = 0;
+		TL0 = 0;
+		TR0 = 1;
+		while(TF0 == 0);
+		TR0 = 0;
+		TF0 = 0;
+	}
+}
+void main()
+{
+	while(1)
+	{
+	P1 = ~P1 ;
+	delay();
+	}
+}
+
+11.
+/*Monitor P1.3 ,if 1 generate a time period on P3.3 with 500 ms delay 
+using T1M2. If 0 generate a square wave on P3.3 with 100 micro sec
+delay using T0M2*/
+#include <reg51.h>
+sbit a = P1^3;
+sbit b = P3^3;
+unsigned int x;
+unsigned int y;
+void delay1()
+{
+	for(x = 0; x<1800 ;x++)
+	{
+	TH1 = 0x00;
+	TR1 = 1;
+	while(TF1 == 0);
+	TF1 = 0;
+	TR1 = 0;
+	}
+}
+void delay2()
+{
+	TH0 = 0xA4;
+	TR0 = 1;
+	while(TF0 == 0);
+	TF0 = 0;
+	TR0 = 0;
+}
+void main()
+{
+	TMOD = 0x22;
+	while(1)
+	{
+		if (a == 1)
+		{
+		b = ~b;
+		delay1();
+		}
+		else
+		{
+		b = ~b;
+		delay2();
+		}
+	}
+}
+
+
+12.
+//In P3.7 crate the given Waveform 150ms using T0M2 and 30ms using T1M1.
+#include<reg51.h>
+sbit a = P3^7;
+unsigned int x;
+void delay1()
+{
+	for(x = 0; x < 540 ;x++)
+	{
+		TMOD = 0x02;
+		TH0 = 0x00;
+		TR0 = 1;
+		while(TF0 == 0);
+		TF0 = 0;
+		TR0 = 0;
+	}
+}
+void delay2()
+{
+	TMOD = 0x10;
+	TH1 = 0x93;
+	TL1 = 0xFF;
+	TR1 = 1;
+	while(TF1 == 0);
+	TF1 = 0;
+	TR1 = 0;
+}
+int y ;
+void main()
+{
+	while(1)
+	{
+		a = 1;
+		delay1();
+		a = 0;
+		delay1();
+		for(y =0;y <3;y++)
+		{
+			a = 1;
+			delay2();
+			a = 0;
+			delay2();
+		}
+	}
+}
+
+
+13.
+//Project :Digital Clock using Normal void delay()
+#include<reg51.h>
+unsigned int x,y,z;
+void delay()
+{
+	for(x= 0;x<32790;x++);
+}
+//int a[];
+int i,j,k ;
+void main()
+{	
+		for(k= 0;k<24;k++)//Hour
+			{
+				P3 = k;
+				for(j= 0;j<60;j++)//minute
+					{
+						P2 = j ;
+						for(i= 0;i<60;i++)//second
+							{
+								P1 =i;
+								delay();
+							}
+					}
+			}
+}
+
+14.
+//Project :Digital Clock using Timer void delay()
+#include<reg51.h>
+unsigned int x;
+void delay()
+{
+	for(x= 0;x<14;x++)
+	{
+	TMOD = 0x01;
+	TH0 = 0;
+	TL0 = 0;
+	TR0 = 1;
+	while(TF0 == 0);
+	TF0 = 0;
+	TR0 = 0;
+	}
+}
+//int a[];
+int i,j,k ;
+void main()
+{	
+		for(k= 0;k<24;k++)//Hour
+			{
+				P3 = k;
+				for(j= 0;j<60;j++)//minute
+					{
+						P2 = j ;
+						for(i= 0;i<60;i++)//second
+							{
+								P1 =i;
+								delay();
+							}
+					}
+			}
+}
+ 
+
+********INTERFACING*********
+
+15.
+//Display 0 to F using 7 segment common cathode with  1 second delay
+#include<reg51.h>
+unsigned int a,x;
+unsigned char Data[] = {0xFD,0x61,0xDB,0XF3,0X67,0XB7,0XBF,0XE1,0XFF,0XF7,0XEF,0X3F,0X9D,0X7B,0X9F,0X8F};
+void delay()
+{
+	for(x =0;x <14;x++)
+	{
+		TMOD = 0x01;
+		TH0 = 0;
+		TL0 = 0;
+		TR0 =1;
+		while(TF0 == 0);
+		TF0 = 0;
+		TR0 = 0;
+	}
+}
+void main()
+{
+	while(1)
+	{
+		for (a = 0;a < sizeof Data;a++)
+		{
+			P2 = Data[a];
+			delay();
+		}
+	}
+}
+
+16.
+//Display 0 to F using 7 segment common anode with  1 second delay
+#include<reg51.h>
+unsigned int a,x;
+unsigned int Data[] = {0x8F,0x9F,0x7B,0x9D,0x3F,0xEF,0xF7,0xFF,0xE1,0xBF,0xB7,0x67,0xF3,0xDB,0x61,0xFD};
+void delay()
+{
+	for(x =0;x <14;x++)
+	{
+		TMOD = 0x01;
+		TH0 = 0;
+		TL0 = 0;
+		TR0 = 1;
+		while(TF0 == 0);
+		TF0 = 0;
+		TR0 = 0;
+	}
+}
+void main()
+{
+	while(1)
+	{
+		for (a = 0;a < sizeof Data;a++)
+		{
+			P2 = ~Data[a];
+			delay();
+		}
+	}
+}
+
+17.
+//Monitor P1.5 ,if 1 rotate a motor clockwise .if 0,rotate a motor anticlock wise.
+#include<reg51.h>
+sbit a = P1^5;
+sbit b = P3^0;
+sbit c = P3^1;
+void main()
+{	
+	while(1)
+	{
+		if (a == 1)
+		{
+			 b = 0;
+			 c = 1;
+		}
+		else
+		{
+			b = 1;
+			c = 0;
+		}
+	}
+}
+
+
+18.
+//Rotate a motor 5sec clockwise, 2sec anticlockwise and 3sec off.
+#include<reg51.h>
+sbit a = P3^0;
+sbit b = P3^1;
+unsigned int i;
+unsigned int x;
+unsigned int y;
+unsigned int z;
+void delay()
+{
+	for(i = 0;i < 3600;i++)
+	{
+		TMOD = 0x02;
+		TH0 = 0x00;
+		TR0 = 1;
+		while(TF0 == 0);
+		TF0 = 0;
+		TR0 = 0;
+	}
+}
+void main()
+{
+	a = 0;
+	b = 1;
+	for(x = 0;x < 5;x++)
+	{
+		delay();
+	}
+	a = 1;
+	b = 0;
+	for(y = 0;y < 2;y++)
+	{
+		delay();
+	}
+	 a = 1;
+	 b = 1;
+	 for(z = 0;z < 3;z++)
+	{
+		delay();
+	}
+}
+
+
+19.
+//Turn on the TWO 12V lapm one at a time with some delay using a 5V relay.
+#include<reg51.h>
+sbit a = P1^5;
+sbit b = P3^0;
+unsigned int x;
+void delay()
+{
+  for(x= 0;x<28;x++)
+  {
+	TMOD = 0x01;
+	TH0 = 0;
+	TL0 = 0;
+	TR0 = 1;
+	while(TF0 == 0);
+	TF0 = 0;
+	TR0 = 0;
+	}
+}
+void main()
+{
+	while(1)
+	{
+			b = 0;
+			delay();
+			b = 1;
+			delay();
+		}
+}
+
+20.
+//Actuate a relay 5sec NO and 2 sec NC
+#include<reg51.h>
+sbit b = P3^0;
+unsigned int x,i,j;
+void delay()
+{
+  for(x= 0;x<14;x++)
+  {
+	TMOD = 0x01;
+	TH0 = 0;
+	TL0 = 0;
+	TR0 = 1;
+	while(TF0 == 0);
+	TF0 = 0;
+	TR0 = 0;
+	}
+}
+void main()
+{
+	while(1)
+	{
+			b = 0;
+			for(i = 0;i<2;i++)
+			{
+				delay();
+			}
+			b = 1;
+			for(j = 0;j<5;j++)
+			{
+				delay();
+			}
+		}
+}
+
+21.
+//Transmitter OR Toggle A
+#include<reg51.h>
+void main()
+{	
+	SCON = 0x50;
+	TMOD = 0X20;
+	TH1 = 0XFD;
+	TR1 = 1;
+	while(1)
+	{
+		SBUF = 'A';
+		while(TI == 0);
+		TI = 0;
+	}
+}
+
+22.
+//Reciever 
+#include<reg51.h>
+void main()
+{
+	SCON = 0x50;
+	TMOD = 0x20;
+	TH1 = 0xFD;
+	TR1 = 1;
+	while(1)
+	{
+		while(RI == 0);
+		P1 = SBUF;
+		RI = 0;
+	}
+}
+
+23.
+//Transmit "GOOD MORNING " to the Virtual terminal continuously.
+#include<reg51.h>
+char s[] = "GOOD MORNING :)";
+int x;
+void main()
+{
+	SCON = 0x50;
+	TMOD = 0x20;
+	TH1 = 0xFD;
+	TR1 = 1;
+	for(x = 0;x < sizeof(s);x++)
+	{
+		SBUF = s[x];
+		while(TI == 0);
+		TI = 0;
+	}
+}
+
+24.
+/*Recieve a character,
+if 'A' add the values of P1 and P2
+if 'S' substract the values of P1 and P2
+if 'M' Multiply the values of P1 and P2
+Show the result in P0.
+If any other key is pressed Transmit "INVALID KEY PRESSED"*/
+#include<reg51.h>
+char a[] = "Sorry,INVALID KEY PRESSED";
+int x;
+char c;
+void main()
+{
+	SCON = 0x50;
+	TMOD = 0x20;
+	TH1 = 0xFD;
+	TR1 = 1;
+		while(RI == 0);
+		c = SBUF;
+		RI = 0;
+	if(c == 'A')
+	{
+		P0 = P1+ P2;
+	}
+	else if(c == 'S')
+	{
+		P0 = P1-P2;
+	}
+	else if(c == 'M')
+	{
+		P0 = P1*P2;
+	}
+	else
+	{
+		for(x = 0;x < sizeof(a);x++)
+	{
+		SBUF = a[x];
+		while(TI == 0);
+		TI = 0;
+	}
+    }
+}
+
+
+25.
+//Project :2 Password Protected Doorlock
+#include<reg51.h>
+unsigned char a[] = "ENTER PASSWORD:";
+unsigned char op[] = "Virus";
+unsigned char p[5];
+
+unsigned char r[] ="WRONG PASSWORD,TRY AGAIN!";
+unsigned char cr[] ="CORRECT PASSWORD";
+int x,y,m,n,k,j=0;
+void nextline()
+{
+	    SBUF=0X0D;
+			while(TI == 0);
+		  TI = 0;
+}
+void main()
+{
+	SCON = 0x50;
+	TMOD = 0x20;
+	TH1 = 0xFD;
+	TR1 = 1;
+	for(x = 0;x <15;x++)
+	{
+		SBUF = a[x];
+		while(TI == 0);
+		TI = 0;
+	}
+nextline();
+	for(y = 0;y<5;y++)
+	{
+		while(RI == 0);
+		p[y] = SBUF;
+		
+		RI = 0;
+			SBUF='*';
+			while(TI == 0);
+		TI = 0;
+		
+	}
+	nextline();
+	for(k=0;k<5;k++)
+	{
+	if(p[k] == op[k])
+	{
+		j=j+1;
+	}}
+		if(j==5)
+		{
+			for(m = 0;m <16 ;m++)
+		{
+			SBUF = cr[m];
+			while(TI == 0);
+			TI = 0;
+			j=0;
+		}
+		nextline();
+	}
+	else
+	{
+		for(n = 0;n<25;n++)
+		{
+			SBUF = r[n];
+			while(TI == 0);
+			TI = 0;
+			j=0;
+		}
+		nextline();
+	}
+}
+
+
+26.//LCD Display:Display CTTC
+#include<reg51.h>
+sbit rs=P1^1;
+sbit rw=P1^2;
+sbit en=P1^3;
+unsigned char data1[]="CTTC";
+unsigned int cmmd[]={0x38,0x0E,0x01,0x06,0x80};
+void delay()
+{
+	unsigned int x;
+	for(x=0;x<30000;x++);
+}
+void cmm()
+{
+	rs = 0;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void dat()
+{
+	rs = 1;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void main()
+{
+	int a,b;
+	while(1)
+	{
+		for(b=0;b<5;b++)
+		{
+			P2 = cmmd[b];
+			cmm();
+		}
+		for(a=0;a<4;a++)
+		{
+			P2 = data1[a];
+			dat();
+		}
+	}
+}
+
+
+27.
+//WAP to dislay "HELLO" in the !st row and "GOOD MORNING " in the 2nd row of a 16x2 LCD
+#include<reg51.h>
+sbit rs=P1^1;
+sbit rw=P1^2;
+sbit en=P1^3;
+unsigned char data1[]="HELLO";
+unsigned char data2[]="GOOD MORNING :)";
+unsigned int cmmd1[]={0x38,0x0E,0x01,0x06,0x80};
+unsigned int cmmd2[]={0x38,0x0E,0x01,0x06,0xC0};
+void delay()
+{
+	unsigned int x;
+	for(x=0;x<35000;x++);
+}
+void cmm()
+{
+	rs = 0;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void dat()
+{
+	rs = 1;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void main()
+{
+	int a,b,c,d;
+	while(1)
+	{
+		for(a=0;a<5;a++)
+		{
+			P2 = cmmd1[a];
+			cmm();
+		}
+		for(b=0;b<5;b++)
+		{
+			P2 = data1[b];
+			dat();
+		}
+		for(c=0;c<5;c++)
+		{
+			P2 = cmmd2[c];
+			cmm();
+		}
+		for(d=0;d<15;d++)
+		{
+			P2 = data2[d];
+			dat();
+		}
+	}
+}
+
+28.
+//Monitor P3.5,if '1' display your name ,else display your surname in a 16x2 LCD
+#include<reg51.h>
+sbit m = P3^5;
+sbit rs=P1^1;
+sbit rw=P1^2;
+sbit en=P1^3;
+unsigned char data1[]="SADASIBA";
+unsigned char data2[]="SARKAR";
+unsigned int cmmd[]={0x38,0x0E,0x01,0x06,0x80};
+void delay()
+{
+	unsigned int x;
+	for(x=0;x<35000;x++);
+}
+void cmm()
+{
+	rs = 0;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void dat()
+{
+	rs = 1;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void main()
+{
+	int a,b,c;
+	while(1)
+	{
+		for(a=0;a<5;a++)
+		{
+			P2 = cmmd[a];
+			cmm();
+		}
+		if(m == 1)
+		{
+			for(b=0;b<8;b++)
+			{
+				P2 = data1[b];
+				dat();
+			}
+		}
+		else
+		{
+			for(c=0;c<6;c++)
+			{
+				P2 = data2[c];
+				dat();
+			}
+		}
+	}
+}
+
+
+29.
+//Matrix Keypad
+#include<reg51.h>
+unsigned int row[]={0xfe,0xfd,0xfb,0xf7};
+unsigned int col[]={0xef,0xdf,0xbf,0x7f};
+unsigned int key[] = {0x0A,9,8,7,0x0B,6,5,4,0x0C,3,2,1,0x0D,0x0E,0,0x0F};
+unsigned int a,b ,c;
+void main()
+{
+	a =0;
+	P2 = 0xf0;
+	while(P2 == 0xf0);
+	for(b=0;b<4;b++)
+	{
+		P2 = row[b];
+		for(c=0;c<4;c++)
+		{
+			if((P2|0x0f)==col[c])
+				P3 = key[a];
+			else
+				a=a+1;
+		}
+	}
+}
+
+
+30.
+//Miniproject 6:LCD and Keypad interfacing
+#include<reg51.h>
+sbit rs=P1^1;
+sbit rw=P1^2;
+sbit en=P1^3;
+unsigned int row[]={0xfe,0xfd,0xfb,0xf7};
+unsigned int col[]={0xef,0xdf,0xbf,0x7f};
+unsigned char key[] = "A987B654C321DE0F";
+unsigned int a,b,c,d;
+unsigned int cmmd[]={0x38,0x0E,0x01,0x06,0x80};
+void delay()
+{
+	unsigned int x;
+	for(x=0;x<33000;x++);
+}
+void cmm()
+{
+	rs = 0;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void dat()
+{
+	rs = 1;
+	rw = 0;
+	en = 1;
+	delay();
+	en = 0;
+}
+void main()
+{
+	for(d=0;d<5;d++)
+		{
+			P3 = cmmd[d];
+			cmm();
+		}
+	while(1)
+	{
+	a =0;
+	P2 = 0xf0;
+	while(P2 == 0xf0);
+	for(b=0;b<4;b++)
+	{
+		P2 = row[b];
+		for(c=0;c<4;c++)
+		{
+			if((P2|0x0f)==col[c])
+			{
+				P3 = key[a];
+			  dat();
+			}
+			else
+				a=a+1;
+		}
+	}
+	
+}
+	}
+
+31.
+
+
+
+*****PIC*****
+
+PIC_Source Code:
+
+
+// PIC18F4520 Configuration Bit Settings
+
+// 'C' source line config statements
+
+// CONFIG1H
+#pragma config OSC = HS         // Oscillator Selection bits (HS oscillator)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
+#pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
+
+// CONFIG2L
+#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
+//#pragma config BOREN = SBORDIS  // Brown-out Reset Enable bits (Brown-out Reset enabled in hardware only (SBOREN is disabled))
+//#pragma config BORV = 3         // Brown Out Reset Voltage bits (Minimum setting)
+
+// CONFIG2H
+#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
+//#pragma config WDTPS = 32768    // Watchdog Timer Postscale Select bits (1:32768)
+
+// CONFIG3H
+#pragma config CCP2MX = PORTC   // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
+#pragma config PBADEN = OFF     // PORTB A/D Enable bit (PORTB<4:0> pins are configured as digital I/O on Reset)
+#pragma config LPT1OSC = OFF    // Low-Power Timer1 Oscillator Enable bit (Timer1 configured for higher power operation)
+#pragma config MCLRE = OFF      // MCLR Pin Enable bit (RE3 input pin enabled; MCLR disabled)
+
+// CONFIG4L
+#pragma config STVREN = OFF     // Stack Full/Underflow Reset Enable bit (Stack full/underflow will not cause Reset)
+#pragma config LVP = OFF        // Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
+#pragma config XINST = OFF      // Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
+
+// CONFIG5L
+#pragma config CP0 = OFF        // Code Protection bit (Block 0 (000800-001FFFh) not code-protected)
+#pragma config CP1 = OFF        // Code Protection bit (Block 1 (002000-003FFFh) not code-protected)
+#pragma config CP2 = OFF        // Code Protection bit (Block 2 (004000-005FFFh) not code-protected)
+#pragma config CP3 = OFF        // Code Protection bit (Block 3 (006000-007FFFh) not code-protected)
+
+// CONFIG5H
+#pragma config CPB = OFF        // Boot Block Code Protection bit (Boot block (000000-0007FFh) not code-protected)
+#pragma config CPD = OFF        // Data EEPROM Code Protection bit (Data EEPROM not code-protected)
+
+// CONFIG6L
+#pragma config WRT0 = OFF       // Write Protection bit (Block 0 (000800-001FFFh) not write-protected)
+#pragma config WRT1 = OFF       // Write Protection bit (Block 1 (002000-003FFFh) not write-protected)
+#pragma config WRT2 = OFF       // Write Protection bit (Block 2 (004000-005FFFh) not write-protected)
+#pragma config WRT3 = OFF       // Write Protection bit (Block 3 (006000-007FFFh) not write-protected)
+
+// CONFIG6H
+#pragma config WRTC = OFF       // Configuration Register Write Protection bit (Configuration registers (300000-3000FFh) not write-protected)
+#pragma config WRTB = OFF       // Boot Block Write Protection bit (Boot block (000000-0007FFh) not write-protected)
+#pragma config WRTD = OFF       // Data EEPROM Write Protection bit (Data EEPROM not write-protected)
+
+// CONFIG7L
+#pragma config EBTR0 = OFF      // Table Read Protection bit (Block 0 (000800-001FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR1 = OFF      // Table Read Protection bit (Block 1 (002000-003FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR2 = OFF      // Table Read Protection bit (Block 2 (004000-005FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR3 = OFF      // Table Read Protection bit (Block 3 (006000-007FFFh) not protected from table reads executed in other blocks)
+
+// CONFIG7H
+#pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) not protected from table reads executed in other blocks)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+
+//
+
+32.
+//WAP to send value 55h to port B and 90h to port C
+
+PIC_sourcec code
+
+#include <xc.h>
+void main()
+{
+    TRISB=0;
+    TRISC=0;
+    PORTB=0x55;
+    PORTC=0x90;
+}
+
+
+33.
+//WAP to toggle RD2 with some delay
+
+PIC_source code
+
+#include <xc.h>
+unsigned int x;
+void delay()
+{
+    for(x=0;x<35000;x++);
+}
+void main()
+{
+    TRISD2 = 0;
+    while(1)
+    {
+        RD2 = ~RD2;
+        delay();
+    }
+}
+
+
+34.
+//Monitor  RB7 ,if it 1 send value 57h to port C otherwise send value 75h port D.
+
+pic_source code
+
+#include <xc.h>
+#define a RB7
+void main()
+{
+    TRISB7=1;
+    TRISC=TRISD=0;
+    while(1)
+    {
+        if(a==1)
+        {
+            PORTC=0x57;
+            PORTD=0;
+        }
+        else
+        {
+            PORTD=0x75;
+            PORTC=0;
+        }
+    }
+}
+
+35.
+//Complement PORT C continuosly with  1sec delay
+
+pic_source code
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+
+void main()
+{
+    while(1)
+    {
+        TRISC =0 ;
+        PORTC= ~PORTC;
+        __delay_ms(500);
+    }
+}
+
+
+36.
+//Send values from ooH-FFH to port 
+
+pic_source code
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+
+unsigned int x;
+void main()
+{
+    TRISB = 0;
+    for(x=0x00;x<=0xFF;x++)
+    {
+        PORTB =  x;
+        __delay_ms(50);
+    }
+}
+
+
+37.
+//Send values from ooH-FFH to port 
+
+pic_source code
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+unsigned char a[]="0123456789ABCDEF";
+
+unsigned int x;
+void main()
+{
+    TRISB = 0;
+    for(x=0;x<15;x++)
+    {
+        PORTB = a[x];
+        __delay_ms(100);
+    }
+}
+
+
+38.
+//Get the value of PORT B ,wait for some delay and show it in PORT C
+
+pic_source code
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+void main()
+{
+    TRISB = 1; 
+    TRISC = 0;
+    while(1)
+    {
+        __delay_ms(600);
+        PORTC = PORTB;
+    }
+}
+
+39.
+//Get the value of PORT C ,if >0xAA send it to port B else to port D
+
+pic_source code
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+void main()
+{
+    TRISB = 0; 
+    TRISC = 1;
+    TRISD = 0;
+    while(1)
+    {
+        if(PORTC >0xAA)
+        {
+            PORTB = PORTC;
+            PORTD =0;
+        }
+        else
+        {
+            PORTD = PORTC;
+            PORTB = 0;
+        }
+    }
+}
+
+
+40.
+//Display 0 to F using 7 segment common cathode with  1 second delay
+
+PIC_source code
+
+//Display 0 to F using 7 segment common cathode with  1 second delay
+#include<xc.h>
+unsigned int a,x;
+unsigned int Data[] = {0xFD,0x61,0xDB,0XF3,0X67,0XB7,0XBF,0XE1,0XFF,0XF7,0XEF,0X3F,0X9D,0X7B,0X9F,0X8F};
+void delay()
+{
+	for(x =0;x <76;x++)//Timer 0 ,16 bit,Without Prescaler 
+	{
+		T0CON = 0x08;
+		TMR0H = 0;
+		TMR0L = 0;
+		TMR0ON =1;
+		while(TMR0IF == 0);
+		TMR0IF = 0;
+		TMR0ON = 0;
+	}
+}
+void main()
+{
+    TRISB = 0;
+	while(1)
+	{
+		for (a = 0;a < 16;a++)
+		{
+			PORTB = Data[a];
+			delay();
+		}
+	}
+}
+
+
+41.//Display 0 to F using 7 segment common cathode with  1 second delay
+#include<xc.h>
+unsigned int a,x;
+unsigned int Data[] = {0xFD,0x61,0xDB,0XF3,0X67,0XB7,0XBF,0XE1,0XFF,0XF7,0XEF,0X3F,0X9D,0X7B,0X9F,0X8F};
+void delay()
+{
+	for(x =0;x<65000;x++);
+}
+void main()
+{
+    TRISB = 0;
+	while(1)
+	{
+		for (a = 0;a < 16;a++)
+		{
+			PORTB = Data[a];
+			delay();
+		}
+	}
+}
+
+
+42.
+//Rotate a motor 5sec clockwise, 2sec anticlockwise and 3sec off.
+
+pic_source code
+
+#include<xc.h>
+#define a RC0
+#define b RC1
+unsigned int i;
+unsigned int x;
+unsigned int y;
+unsigned int z;
+void delay1()
+{
+	for(i = 0;i <380;i++)
+	{
+		T0CON = 0x08;//Timer 0 ,16 bit,Without Prescaler 
+		TMR0H = 0;
+        TMR0L = 0;
+		TMR0ON = 1;
+		while(TMR0IF == 0);
+		TMR0IF = 0;
+		TMR0ON = 0;
+	}
+}
+void delay2()
+{
+	for(i = 0;i <39062;i++)
+	{
+		T0CON = 0x48;//Timer 0 ,8 bit,Without Prescaler 
+		TMR0H = 0;
+        TMR0L = 0;
+		TMR0ON = 1;
+		while(TMR0IF == 0);
+		TMR0IF = 0;
+		TMR0ON = 0;
+	}
+}
+void delay3()
+{
+	for(i = 0;i <228;i++)
+	{
+		T0CON = 0x08;//Timer 0 ,16 bit,Without Prescaler 
+		TMR0H = 0;
+        TMR0L = 0;
+		TMR0ON = 1;
+		while(TMR0IF == 0);
+		TMR0IF = 0;
+		TMR0ON = 0;
+	}
+}
+void main()
+{
+    TRISC0 = 0;
+    TRISC1 = 0;
+    while(1)
+    {
+        a = 0;
+        b = 1;
+        delay1();
+        a = 1;
+        b = 0;
+        delay2();
+         a = 1;
+         b = 1;
+        delay3();
+    }
+
+}
+
+43.
+//Actuate a relay 5sec NO and 2 sec NC
+
+PIC_source code
+
+#include<xc.h>
+#define b RD0
+unsigned int x,i,j;
+void delay()
+{
+  for(x= 0;x<76;x++)
+  {
+	T0CON = 0x08;//Timer 0 ,16 bit,Without Prescaler
+	TMR0H = 0;
+	TMR0L = 0;
+	TMR0ON = 1;
+	while(TMR0IF == 0);
+	TMR0IF = 0;
+	TMR0ON = 0;
+	}
+}
+void main()
+{
+    TRISD0 = 0;
+	while(1)
+	{
+			b = 0;
+			for(i = 0;i<2;i++)
+			{
+				delay();
+			}
+			b = 1;
+			for(j = 0;j<5;j++)
+			{
+				delay();
+			}
+		}
+}
+
+
+
+44.
+//Program to transmit 'B' to the virtual terminal.
+
+pic_source code
+
+#include<xc.h>
+void main()
+{
+    TRISC6 = 0;
+    TXSTA = 0x20;
+    SPBRG = 31;
+    SPEN = 1;
+    while(1)
+    {
+        TXREG = 'B';
+        while(TXIF == 0);
+        TXIF = 0;
+    }
+}
+
+45.
+//Program to recieve from the virtual terminal and store in port B.
+
+pic_sourcce code
+
+#include<xc.h>
+void main()
+{
+    TRISC7 = 1;
+    TRISB = 0;
+    SPBRG = 31;
+    RCSTA = 0x90;
+    while(1)
+    {
+        while(RCIF == 0);
+        PORTB = RCREG;
+        RCIF = 0;
+    }
+}
+
+46.
+//Transmit your favorite cricketer's name at 9600 baudrate ,XTAL=20MHz
+
+pic_source code
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+unsigned int x;
+char a[]= "DHONI";
+void newline()
+{
+    TXREG=0X0D;
+	while(TXIF == 0);
+	TXIF = 0;
+}
+void main()
+{
+    TRISC6 = 0;
+    TXSTA = 0x20;
+    SPBRG = 31;
+    SPEN = 1;
+    while(1)
+    {
+        for(x=0;x<5;x++)
+        {
+            TXREG = a[x];
+            while(TXIF == 0);
+            TXIF = 0;
+            __delay_ms(100);   
+        }
+    newline();
+    __delay_ms(1000); 
+    }
+}
+
+
+47.
+
+PIC_source code
+
+/*Monitor RC4 and RC5 ,if "00" transmit name ,"01" Roll no ,"10" batch and 
+if "11" marks*/
+#include<xc.h>
+#define a RC4
+#define b RC5
+#define _XTAL_FREQ 20000000
+unsigned int w,x,y,z;
+char m[]= "Name:Partha Sathpathi";
+char n[]= "Roll:9150";
+char o[]="Batch:2021";
+char p[]= "Marks:74";
+void newline()
+{
+    TXREG=0X0D;
+	while(TXIF == 0);
+	TXIF = 0;
+}
+void main()
+{
+    TRISC4 = 1;
+    TRISC5 = 1;
+    TRISC6 = 0;
+    TXSTA = 0x20;
+    SPBRG = 31;
+    SPEN = 1;
+        if(a==0&&b==0)
+        {
+            for(w=0;w<21;w++)
+            {
+                TXREG = m[w];
+                while(TXIF == 0);
+                TXIF = 0;
+                __delay_ms(400);
+            }  
+            newline();
+        }
+        else if(a==0&&b==1)
+        {
+            for(x=0;x<9;x++)
+            {
+                TXREG = n[x];
+                while(TXIF == 0);
+                TXIF = 0;
+                __delay_ms(400);
+            }  
+            newline();
+        }
+        else if(a==1&&b==0)
+        {
+            for(y=0;y<10;y++)
+            {
+                TXREG = o[y];
+                while(TXIF == 0);
+                TXIF = 0;
+                __delay_ms(400);
+            }    
+            newline();
+        }
+        else
+        {
+            for(z=0;z<8;z++)
+            {
+                TXREG = p[z];
+                while(TXIF == 0);
+                TXIF = 0;
+                __delay_ms(400);
+            }  
+            newline();
+        }
+
+    
+}
+
+
+48.
+
+PIC_source code
+
+//Display the character Received from the Keyboard in a 16x2 LCD
+#include<xc.h>
+#define rs RC0
+#define rw RC1
+#define en RC2
+unsigned int comd[] = {0x38,0x0E,0x01,0x06,0x80};
+unsigned a,b,c;
+void delay()
+{
+    for(a=0;a<35000;a++);
+}
+void com()
+{
+    rs = 0;
+    rw = 0;
+    en = 1;
+    delay();
+    en = 0;
+}
+void data()
+{
+    rs = 1;
+    rw = 0;
+    en = 1;
+    delay();
+    en = 0;
+}
+void main()
+{
+    TRISC0 = 0;
+    TRISC1 = 0;
+    TRISC2 = 0;
+    TRISC7 = 1;
+    TRISB = 0;
+    SPBRG = 31;
+    RCSTA = 0x90;
+    for(b=0;b<5;b++)
+    {
+        PORTB = comd[b];
+        com();
+    }
+    while(1)
+    {
+        while(RCIF == 0);
+        PORTB = RCREG;
+        data();
+        RCIF = 0;
+    }
+}
+
+
+
+
+
+*********ARM*******
+
+49.
+//LED on off 
+#include<lpc21xx.h>
+#define BIT(x)(1<<x)
+ 
+ void main()
+ {
+ 	IO0DIR |= BIT(31);
+	{
+		while(1)
+		{
+			if(IO0PIN & BIT(7))
+			{
+				IO0SET |= BIT(31);
+			}
+			else
+			{
+				IO0CLR  |= BIT(31);
+			}
+		}
+	}
+}
+
+
+
+50.
+//Toggle Port1 continuosly with some delay.
+#include<lpc21xx.h>
+
+unsigned int x;
+void delay()
+{
+	for(x=0;x<30000;x++);
+}
+void main()
+{
+	IO1DIR=0xffffffff;
+	while(1)
+	{
+		IO1PIN = ~IO1PIN;
+		delay();
+	} 
+}
+
+
+51.
+//Toggle all pins of Port0 continuosly with some delay.
+#include<lpc21xx.h>
+unsigned int x;
+void delay()
+{
+	for(x=0;x<30000;x++);
+}
+void main()
+{	PINSEL1 = 0;
+	IO0DIR=0xffffffff;
+	while(1)
+	{
+		IO0PIN = ~IO0PIN;
+		delay();
+	} 
+}
+
+
+52.
+//Continuosly rotate a single bit from Left to Right in Port0
+#include<lpc21xx.h>
+#define BIT(x) (1<<x)
+void delay()
+{
+	unsigned int x,y;
+	for(x=0;x<6;x++)
+	{
+			for(y=0;y<65000;y++);
+	}
+}
+void main()
+{
+
+	PINSEL1 = 0;
+	IO0DIR = 0xffffffff;
+
+	while(1)
+	{
+		int i;
+		for(i=31;i>=0;i--)
+		{
+			IO0CLR = BIT(i+1);
+			IO0SET = BIT(i);
+			delay();
+		}
+	}
+}
+
+
+
+53.
+//Monitor P1.20,if 1 send 0x0000FFFF to PORT0 ,Else send 0xFFFF0000 to PORT0
+
+#include<lpc21xx.h>
+#define BIT(x) (1<<x)
+void delay()
+{
+	unsigned int y;
+	for(y=0;y<65000;y++);
+}
+void main()
+{
+	PINSEL2 = 0;
+	PINSEL1 = 0;
+	while(1)
+	{
+		if(IO1PIN & BIT(20))
+	 	{
+	  		IO0DIR = 0x0000FFFF;
+		} 
+		else
+		{
+			IO0DIR = 0xFFFF0000;
+		}
+	}
+}
+
+
+
+54.
+//Send values from 0000 to ffff to PORT0
+#include<lpc21xx.h>
+#define BIT(x) (1<<x)
+unsigned int x;
+void delay()
+{
+	for(x=0;x<35000;x++);
+}
+void main()
+{
+	IO0DIR = 0xffffffff;
+	PINSEL1 = 0;
+	while(1)
+	{
+		int i;
+		for(i=0;i<0xffff;i++)//Or in place of 0xffff we can write 256
+		{
+			
+			IO0PIN = i;
+			delay();
+		}
+	}
+}
+
+
+55.
+/*Check the value of port 0, 
+if >0xffff,glow P1.18
+if <0xffff,glow P1.19
+if =0xffff,glow P1.20
+(only one led should glow at a time)*/
+#include<lpc21xx.h>
+#define BIT(x) (1<<x)
+unsigned int x;
+void delay()
+{
+	for(x=0;x<65000;x++);
+}
+void main()
+{
+	IO0DIR =  0x00000000;
+	IO1DIR = 0xffffffff;
+	PINSEL1 = 0;
+	PINSEL2 = 0;
+	while(1)
+	{
+		if(IO0PIN > 0xffff)
+		{
+			IO1SET |=BIT(18) ;
+			IO1CLR |=BIT(19);
+			IO1CLR |=BIT(20);
+		}
+		else if(IO0PIN < 0xffff)
+		{
+			IO1SET |=BIT(19);
+			IO1CLR |=BIT(18);
+			IO1CLR |=BIT(20);
+		}
+		else
+		{
+			IO1SET |=BIT(20) ;
+			IO1CLR |=BIT(18);
+			IO1CLR |=BIT(19);
+		}
+	}
+}
+
+
+
+56.

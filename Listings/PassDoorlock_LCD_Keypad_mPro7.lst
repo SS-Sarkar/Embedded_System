@@ -1,0 +1,142 @@
+C51 COMPILER V9.54   PASSDOORLOCK_LCD_KEYPAD_MPRO7                                         08/22/2022 16:31:36 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE PASSDOORLOCK_LCD_KEYPAD_MPRO7
+OBJECT MODULE PLACED IN .\Objects\PassDoorlock_LCD_Keypad_mPro7.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE PassDoorlock_LCD_Keypad_mPro7.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXT
+                    -END PRINT(.\Listings\PassDoorlock_LCD_Keypad_mPro7.lst) TABS(2) OBJECT(.\Objects\PassDoorlock_LCD_Keypad_mPro7.obj)
+
+line level    source
+
+   1          //Project:7 Password Protected Doorlock system using LCD and Keypad
+   2          #include<reg51.h>
+   3          sbit rs=P1^1;
+   4          sbit rw=P1^2;
+   5          sbit en=P1^3;
+   6          int row[]={0xfe,0xfd,0xfb,0xf7};
+   7          int col[]={0xef,0xdf,0xbf,0x7f};
+   8          char key[] = "A987B654C321DE0F";
+   9          int a,b,c,d;
+  10          int cmmd[]={0x38,0x0E,0x01,0x06,0x80};
+  11          char a1[] = "ENTER PASSWORD:";
+  12          char op[] = "Virus";
+  13          int p[5];
+  14          
+  15          char r[] ="PASSWORD DENIED,TRY AGAIN!";
+  16          char cr[] ="PASSWORD EXCEPTED";
+  17          int x,y,m,n,k,j=0;
+  18          void nextline()
+  19          {
+  20   1            SBUF=0X0D;
+  21   1            while(TI == 0);
+  22   1            TI = 0;
+  23   1      }
+  24          void delay()
+  25          {
+  26   1        int x;
+  27   1        for(x=0;x<33000;x++);
+  28   1      }
+  29          void cmm()
+  30          {
+  31   1        rs = 0;
+  32   1        rw = 0;
+  33   1        en = 1;
+  34   1        delay();
+  35   1        en = 0;
+  36   1      }
+  37          void dat()
+  38          {
+  39   1        rs = 1;
+  40   1        rw = 0;
+  41   1        en = 1;
+  42   1        delay();
+  43   1        en = 0;
+  44   1      }
+  45          void main()
+  46          {
+  47   1        SCON = 0x50;
+  48   1        TMOD = 0x20;
+  49   1        TH1 = 0xFD;
+  50   1        TR1 = 1;
+  51   1        for(x = 0;x <15;x++)
+  52   1        {
+  53   2          SBUF = a1[x];
+  54   2          while(TI == 0);
+C51 COMPILER V9.54   PASSDOORLOCK_LCD_KEYPAD_MPRO7                                         08/22/2022 16:31:36 PAGE 2   
+
+  55   2          TI = 0;
+  56   2        }
+  57   1      nextline();
+  58   1        for(y = 0;y<5;y++)
+  59   1        {
+  60   2          while(RI == 0);
+  61   2          p[y] = SBUF;
+  62   2          
+  63   2          RI = 0;
+  64   2            SBUF='*';
+  65   2            while(TI == 0);
+  66   2          TI = 0;
+  67   2          
+  68   2        }
+  69   1        nextline();
+  70   1        for(k=0;k<5;k++)
+  71   1        {
+  72   2          if(p[k] == op[k])
+  73   2          {
+  74   3            j=j+1;
+  75   3          }
+  76   2        }
+  77   1          if(j==5)
+  78   1          {
+  79   2            for(m = 0;m <17 ;m++)
+  80   2          {
+  81   3            SBUF = cr[m];
+  82   3            while(TI == 0);
+  83   3            TI = 0;
+  84   3            j=0;
+  85   3          }
+  86   2          nextline();
+  87   2        }
+  88   1        else
+  89   1        {
+  90   2          for(n = 0;n<26;n++)
+  91   2          {
+  92   3            SBUF = r[n];
+  93   3            while(TI == 0);
+  94   3            TI = 0;
+  95   3            j=0;
+  96   3          }
+  97   2          nextline();
+  98   2        }
+  99   1        for(d=0;d<5;d++)
+ 100   1          {
+ 101   2            P3 = cmmd[d];
+ 102   2            cmm();
+ 103   2          }
+ 104   1        while(1)
+ 105   1        {
+ 106   2        a =0;
+ 107   2        P2 = 0xf0;
+ 108   2        while(P2 == 0xf0);
+ 109   2        for(b=0;b<4;b++)
+ 110   2        {
+ 111   3          P2 = row[b];
+ 112   3          for(c=0;c<4;c++)
+ 113   3          {
+ 114   4            if((P2|0x0f)==col[c])
+ 115   4            {
+ 116   5              P3 = key[a];
+C51 COMPILER V9.54   PASSDOORLOCK_LCD_KEYPAD_MPRO7                                         08/22/2022 16:31:36 PAGE 3   
+
+ 117   5              dat();
+ 118   5            }
+ 119   4            else
+ 120   4              a=a+1;
+ 121   4          }
+ 122   3        }
+ 123   2        
+ 124   2      }
+ 125   1      }
+*** ERROR C249 IN LINE 125 OF PassDoorlock_LCD_Keypad_mPro7.c: 'DATA': SEGMENT TOO LARGE
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

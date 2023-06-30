@@ -1,0 +1,4 @@
+"startup.o" "arm_shiftabitltor.o" --strict --scatter "ARM3.sct" 
+--map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ARM3.map" -o "ARM3.axf"

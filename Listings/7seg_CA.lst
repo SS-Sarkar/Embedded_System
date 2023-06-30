@@ -1,0 +1,52 @@
+C51 COMPILER V9.54   7SEG_CA                                                               08/13/2022 12:46:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 7SEG_CA
+OBJECT MODULE PLACED IN .\Objects\7seg_CA.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 7seg_CA.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\7
+                    -seg_CA.lst) TABS(2) OBJECT(.\Objects\7seg_CA.obj)
+
+line level    source
+
+   1          //Display 0 to F using 7 segment common anode with  1 second delay
+   2          #include<reg51.h>
+   3          unsigned int a,x;
+   4          unsigned char Data[] = {0x8F,0x9F,0x7B,0x9D,0x3F,0xEF,0xF7,0xFF,0xE1,0xBF,0xB7,0x67,0xF3,0xDB,0x61,0xFD};
+   5          void delay()
+   6          {
+   7   1        for(x =0;x <14;x++)
+   8   1        {
+   9   2          TMOD = 0x01;
+  10   2          TH0 = 0;
+  11   2          TL0 = 0;
+  12   2          TR0 = 1;
+  13   2          while(TF0 == 0);
+  14   2          TF0 = 0;
+  15   2          TR0 = 0;
+  16   2        }
+  17   1      }
+  18          void main()
+  19          {
+  20   1        while(1)
+  21   1        {
+  22   2          for (a = 0;a < sizeof Data;a++)
+  23   2          {
+  24   3            P2 = ~Data[a];
+  25   3            delay();
+  26   3          }
+  27   2        }
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

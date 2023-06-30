@@ -1,0 +1,84 @@
+C51 COMPILER V9.54   LCD_DISPLAY_NAME                                                      08/18/2022 16:09:39 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LCD_DISPLAY_NAME
+OBJECT MODULE PLACED IN .\Objects\LCD_Display_Name.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LCD_Display_Name.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\LCD_Display_Name.lst) TABS(2) OBJECT(.\Objects\LCD_Display_Name.obj)
+
+line level    source
+
+   1          //Monitor P3.5,if '1' display your name ,else display your surname in a 16x2 LCD
+   2          #include<reg51.h>
+   3          sbit m = P3^5;
+   4          sbit rs=P1^1;
+   5          sbit rw=P1^2;
+   6          sbit en=P1^3;
+   7          unsigned char data1[]="SADASIBA";
+   8          unsigned char data2[]="SARKAR";
+   9          unsigned int cmmd[]={0x38,0x0E,0x01,0x06,0x80};
+  10          void delay()
+  11          {
+  12   1        unsigned int x;
+  13   1        for(x=0;x<35000;x++);
+  14   1      }
+  15          void cmm()
+  16          {
+  17   1        rs = 0;
+  18   1        rw = 0;
+  19   1        en = 1;
+  20   1        delay();
+  21   1        en = 0;
+  22   1      }
+  23          void dat()
+  24          {
+  25   1        rs = 1;
+  26   1        rw = 0;
+  27   1        en = 1;
+  28   1        delay();
+  29   1        en = 0;
+  30   1      }
+  31          void main()
+  32          {
+  33   1        int a,b,c;
+  34   1        while(1)
+  35   1        {
+  36   2          for(a=0;a<5;a++)
+  37   2          {
+  38   3            P2 = cmmd[a];
+  39   3            cmm();
+  40   3          }
+  41   2          if(m == 1)
+  42   2          {
+  43   3            for(b=0;b<8;b++)
+  44   3            {
+  45   4              P2 = data1[b];
+  46   4              dat();
+  47   4            }
+  48   3          }
+  49   2          else
+  50   2          {
+  51   3            for(c=0;c<6;c++)
+  52   3            {
+  53   4              P2 = data2[c];
+  54   4              dat();
+C51 COMPILER V9.54   LCD_DISPLAY_NAME                                                      08/18/2022 16:09:39 PAGE 2   
+
+  55   4            }
+  56   3          }
+  57   2        }
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     26       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
